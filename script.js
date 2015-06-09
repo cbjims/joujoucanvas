@@ -37,7 +37,7 @@ var drawRound = function () {
 var drawSquare = function () {
 	var ctx = c.getContext("2d");
 	ctx.fillStyle = color;
-	ctx.fillRect(x, y, size* Math.PI/2, size* Math.PI/2);
+	ctx.fillRect(x, y, size* Math.sqrt(Math.PI), size* Math.sqrt(Math.PI));
 };
 
 var draw = function () {
