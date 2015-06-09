@@ -8,6 +8,7 @@ var drawing = false;
 var color = 'black';
 var shape = 'round';
 var x = 0, y = 0;
+var size = 12;
 
 
 
@@ -19,7 +20,11 @@ $('table#shapeSelector td').on('click', function(event){
 	shape = event.target.id;
 });
 
-var drawRound = function (x, y, size, color) {
+$('#sizeSelector').on('change', function(event){
+	size = $('#sizeSelector')[0].value*1;
+});
+
+var drawRound = function () {
 	var ctx = c.getContext("2d");
 	ctx.fillStyle = color;
 	ctx.strokeStyle = color;
@@ -29,7 +34,7 @@ var drawRound = function (x, y, size, color) {
 	ctx.stroke();
 };
 
-var drawSquare = function (x, y, size, color) {
+var drawSquare = function () {
 	var ctx = c.getContext("2d");
 	ctx.fillStyle = color;
 	ctx.fillRect(x, y, size* Math.PI/2, size* Math.PI/2);
@@ -37,10 +42,10 @@ var drawSquare = function (x, y, size, color) {
 
 var draw = function () {
 	if (shape === 'round') {
-		drawRound(x, y, 12, color);
+		drawRound();
 	}
 	else if (shape === 'square') {
-		drawSquare(x, y, 12, color);
+		drawSquare();
 	}
 };
 
