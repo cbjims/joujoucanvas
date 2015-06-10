@@ -12,12 +12,17 @@ var size = 12;
 
 
 
-$('table#colorSelector td').on('click', function(event){
+$('.colorSelector a').on('click', function(event){
 	color = event.target.id;
+	$('.colorSelector li').removeClass('active');
+	$(event.toElement).parent().addClass('active');
+	// console.log(event.toElement.parentNode);
 });
 
-$('table#shapeSelector td').on('click', function(event){
+$('.shapeSelector a').on('click', function(event){
 	shape = event.target.id;
+	$('.shapeSelector li').removeClass('active');
+	$(event.toElement).parent().addClass('active')
 });
 
 $('#sizeSelector').on('change', function(event){

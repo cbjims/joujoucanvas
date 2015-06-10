@@ -1,3 +1,25 @@
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 50px;
+}
+.toolbox {
+	margin-top: 21px;
+}
+
+.main  {
+	position: fixed;
+    top: 51px;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: #f5f5f5;
+    border-right: 1px solid #eee;
+}
+
 #myCanvas {
 	border: 1px solid black;
 
@@ -8,3 +30,19 @@ table td {
 	cursor: pointer;
 }
 
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+  color: #fff;
+  background-color: #428bca;
+}
+
+.toolbox ul {
+	border: solid #428bca;
+	border-width: 0px 0px 1px 0px;
+	padding: 3px;
+}
+
+.toolbox ul.last {
+	border: 0;
+}
