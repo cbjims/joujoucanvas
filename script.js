@@ -1,8 +1,5 @@
-// var c = document.getElementById("myCanvas");
 var c = $('#myCanvas')[0];
 
-// console.log(c);
-// console.log(c1);
 
 var drawing = false;
 var color = 'black';
@@ -16,17 +13,24 @@ $('.colorSelector a').on('click', function(event){
 	color = event.target.id;
 	$('.colorSelector li').removeClass('active');
 	$(event.toElement).parent().addClass('active');
-	// console.log(event.toElement.parentNode);
 });
 
 $('.shapeSelector a').on('click', function(event){
 	shape = event.target.id;
 	$('.shapeSelector li').removeClass('active');
-	$(event.toElement).parent().addClass('active')
+	$(event.toElement).parent().addClass('active');
 });
 
 $('#sizeSelector').on('change', function(event){
 	size = $('#sizeSelector')[0].value*1;
+});
+
+$('#sizeSelector').on('change', function(event){
+	size = $('#sizeSelector')[0].value*1;
+});
+
+$('.clear a').on('click', function(event){
+	clear();
 });
 
 var drawRound = function () {
@@ -44,6 +48,12 @@ var drawSquare = function () {
 	ctx.fillStyle = color;
 	ctx.fillRect(x, y, size* Math.sqrt(Math.PI), size* Math.sqrt(Math.PI));
 };
+
+var clear = function () {
+	var ctx = c.getContext("2d");
+	ctx.fillStyle = "white";
+	ctx.fillRect(0, 0, 1280, 720);
+}
 
 var draw = function () {
 	if (shape === 'round') {
